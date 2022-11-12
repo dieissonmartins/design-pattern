@@ -1,0 +1,1 @@
+docker exec -it design-pattern-app bash
