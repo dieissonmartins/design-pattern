@@ -1,9 +1,15 @@
 <?php
 
-// teste depuracao
-$item = 1;
-$item1 = 1;
-$item2 = 1;
-$item3 = 1;
+use Src\DesignPattern\Budget;
+use Src\DesignPattern\TaxCalculator;
 
-phpinfo();
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$calculator = new TaxCalculator();
+
+$budget = new Budget();
+$budget->value = 100;
+
+$calculator->calculate($budget, TaxCalculator::ISS);
+
+$calculator->calculate($budget, TaxCalculator::ICMS);
