@@ -2,22 +2,19 @@
 
 namespace Src\DesignPattern;
 
+use FiveHundredMoreMoney;
+use FiveMoreItems;
+use Not;
+
 class DiscountCalculator
 {
     public function calculate(Budget $budget): float
     {
-        $aux = $budget->value;
 
-        if ($budget->items_qtd > 5) {
-            $aux = $budget->value * 0.1;
-        }
+        $pipeline = new Not();
+        $pipeline = new FiveHundredMoreMoney($pipeline);
+        $pipeline = new FiveMoreItems($pipeline);
 
-        if($budget->value > 500) {
-            $aux = $budget->value * 0.05;
-        }
-
-        $ret = $aux;
-
-        return $ret;
+        return $pipeline->calculate($budget);
     }
 }
