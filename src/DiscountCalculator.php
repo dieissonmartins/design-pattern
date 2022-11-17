@@ -2,18 +2,15 @@
 
 namespace Src\DesignPattern;
 
-use FiveHundredMoreMoney;
-use FiveMoreItems;
-use Not;
+use Src\DesignPattern\Discounts\FiveHundredMoreMoney;
+use Src\DesignPattern\Discounts\FiveMoreItems;
+use Src\DesignPattern\Discounts\Not;
 
 class DiscountCalculator
 {
     public function calculate(Budget $budget): float
     {
-
-        $pipeline = new Not();
-        $pipeline = new FiveHundredMoreMoney($pipeline);
-        $pipeline = new FiveMoreItems($pipeline);
+        $pipeline = new FiveMoreItems(new FiveHundredMoreMoney(new Not()));
 
         return $pipeline->calculate($budget);
     }

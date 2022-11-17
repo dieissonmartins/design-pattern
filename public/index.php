@@ -25,4 +25,6 @@ $budget->value = 500;
 $budget->items_qtd = 7;
 
 $calculator = new DiscountCalculator();
-$calculator->calculate($budget);
+$discount = $calculator->calculate($budget);
+
+echo $discount;

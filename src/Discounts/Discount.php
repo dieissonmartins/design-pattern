@@ -1,4 +1,5 @@
 <?php
+namespace Src\DesignPattern\Discounts;
 
 use Src\DesignPattern\Budget;
 
